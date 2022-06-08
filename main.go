@@ -20,7 +20,6 @@ func main() {
 	microSPF := int(1_000_000 / fps)
 
 	ticker := time.NewTicker(time.Duration(microSPF) * time.Microsecond)
-	window := gocv.NewWindow("Hello")
 	img := gocv.NewMat()
 	for {
 		vid.Read(&img)
@@ -64,8 +63,5 @@ func main() {
 		<-ticker.C
 
 		fmt.Println(str)
-
-		window.IMShow(scaled)
-		window.WaitKey(1)
 	}
 }
